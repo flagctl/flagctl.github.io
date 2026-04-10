@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>flagctl — GitOps-native Feature Flags</title>
-  <meta name="description" content="GitOps-native, OpenFeature-compatible feature flag management. Ship faster, roll back instantly, target precisely." />
-  <meta name="keywords" content="feature flags, feature toggles, gitops, openfeature, feature management, a/b testing, canary deployment, kill switch, flagctl" />
+  <meta name="description"
+    content="Ship faster, roll back instantly, target precisely. Open-source feature flag management built for modern engineering teams.">
+  <meta name="keywords"
+    content="feature flags, feature toggles, gitops, openfeature, feature management, a/b testing, canary deployment, kill switch, flagctl" />
   <meta name="author" content="CloudWalkers Inc." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://flagctl.github.io/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="flagctl — GitOps-native Feature Flags" />
-  <meta property="og:description" content="Ship faster, roll back instantly, target precisely. Open-source feature flag management built for modern engineering teams." />
+  <meta property="og:description"
+    content="Ship faster, roll back instantly, target precisely. Open-source feature flag management built for modern engineering teams." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://flagctl.github.io/" />
   <meta property="og:image" content="https://flagctl.github.io/og-image.png" />
@@ -22,13 +26,24 @@
   <meta property="og:site_name" content="flagctl" />
   <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@flagctl" />
-  <meta name="twitter:title" content="flagctl — GitOps-native Feature Flags" />
-  <meta name="twitter:description" content="Ship faster, roll back instantly, target precisely. OpenFeature-compatible feature flag management for modern engineering teams." />
-  <meta name="twitter:image" content="https://flagctl.github.io/og-image.png" />
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://flagctl.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="flagctl — GitOps-native Feature Flags">
+  <meta property="og:description"
+    content="Ship faster, roll back instantly, target precisely. Open-source feature flag management built for modern engineering teams.">
+  <meta property="og:image" content="https://flagctl.github.io/og-image.png">
 
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="flagctl.github.io">
+  <meta property="twitter:url" content="https://flagctl.github.io/">
+  <meta name="twitter:title" content="flagctl — GitOps-native Feature Flags">
+  <meta name="twitter:description"
+    content="Ship faster, roll back instantly, target precisely. Open-source feature flag management built for modern engineering teams.">
+  <meta name="twitter:image" content="https://flagctl.github.io/og-image.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -99,9 +114,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- ===================== NAV ===================== -->
@@ -154,29 +172,42 @@
         <a href="#pricing" class="btn btn-primary btn-lg">
           Get started free
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </a>
         <a href="#how-it-works" class="btn btn-ghost btn-lg">See how it works</a>
       </div>
       <div class="trust-bar">
         <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5" />
+            <path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           Sub-5ms P99
         </div>
         <div class="trust-sep"></div>
         <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5" />
+            <path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           99.99% Uptime SLA
         </div>
         <div class="trust-sep"></div>
         <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5" />
+            <path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           SOC 2 Type II Ready
         </div>
         <div class="trust-sep"></div>
         <div class="trust-item">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="#0cce6b" stroke-width="1.5" />
+            <path d="M5 8l2 2 4-4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
           Zero Standing Privilege
         </div>
       </div>
@@ -250,25 +281,33 @@
               <div class="preview-row">
                 <span class="preview-key">checkout-v2</span>
                 <span class="preview-chip preview-chip-green">active</span>
-                <div class="preview-bar-wrap"><div class="preview-bar" style="width:80%;background:#0070f3"></div></div>
+                <div class="preview-bar-wrap">
+                  <div class="preview-bar" style="width:80%;background:#0070f3"></div>
+                </div>
                 <span class="preview-trend" style="color:#0cce6b">+12%</span>
               </div>
               <div class="preview-row">
                 <span class="preview-key">dark-mode</span>
                 <span class="preview-chip preview-chip-green">active</span>
-                <div class="preview-bar-wrap"><div class="preview-bar" style="width:100%;background:#0cce6b"></div></div>
+                <div class="preview-bar-wrap">
+                  <div class="preview-bar" style="width:100%;background:#0cce6b"></div>
+                </div>
                 <span class="preview-trend" style="color:#0cce6b">+4%</span>
               </div>
               <div class="preview-row">
                 <span class="preview-key">new-pricing</span>
                 <span class="preview-chip preview-chip-yellow">experiment</span>
-                <div class="preview-bar-wrap"><div class="preview-bar" style="width:30%;background:#f5a623"></div></div>
+                <div class="preview-bar-wrap">
+                  <div class="preview-bar" style="width:30%;background:#f5a623"></div>
+                </div>
                 <span class="preview-trend" style="color:#888">—</span>
               </div>
               <div class="preview-row">
                 <span class="preview-key">payment-failover</span>
                 <span class="preview-chip preview-chip-red">armed</span>
-                <div class="preview-bar-wrap"><div class="preview-bar" style="width:100%;background:#e53e3e"></div></div>
+                <div class="preview-bar-wrap">
+                  <div class="preview-bar" style="width:100%;background:#e53e3e"></div>
+                </div>
                 <span class="preview-trend" style="color:#e53e3e">KS</span>
               </div>
             </div>
@@ -299,16 +338,21 @@
       <div class="section-header">
         <span class="section-eyebrow">Platform</span>
         <h2 class="section-title">Everything your team needs</h2>
-        <p class="section-sub">From simple on/off toggles to complex multi-variate experiments — flagctl handles the full feature flag lifecycle.</p>
+        <p class="section-sub">From simple on/off toggles to complex multi-variate experiments — flagctl handles the
+          full feature flag lifecycle.</p>
       </div>
       <div class="features-grid">
 
         <div class="feature-card feature-card-wide">
           <div class="feature-icon feature-icon-blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 6l4-4 4 4M12 2v12M4 20h16M4 20a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M8 6l4-4 4 4M12 2v12M4 20h16M4 20a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">GitOps-native workflow</h3>
-          <p class="feature-desc">Define flags as YAML. Review via PR. Deploy with confidence. Your flag config lives in git — versioned, auditable, and rollbackable like any other code.</p>
+          <p class="feature-desc">Define flags as YAML. Review via PR. Deploy with confidence. Your flag config lives in
+            git — versioned, auditable, and rollbackable like any other code.</p>
           <div class="feature-code">
             <pre><span class="c-key">key</span><span class="c-colon">:</span> <span class="c-str">checkout-v2</span>
 <span class="c-key">type</span><span class="c-colon">:</span> <span class="c-str">boolean</span>
@@ -325,10 +369,14 @@
 
         <div class="feature-card">
           <div class="feature-icon feature-icon-purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">OpenFeature SDK</h3>
-          <p class="feature-desc">Standards-compliant SDK for Java, Go, Python, Node.js, and more. Migrate from any provider without rewriting evaluation logic.</p>
+          <p class="feature-desc">Standards-compliant SDK for Java, Go, Python, Node.js, and more. Migrate from any
+            provider without rewriting evaluation logic.</p>
           <div class="feature-langs">
             <span class="lang-pill">Java</span>
             <span class="lang-pill">Go</span>
@@ -340,10 +388,14 @@
 
         <div class="feature-card">
           <div class="feature-icon feature-icon-red">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">Kill switches</h3>
-          <p class="feature-desc">Arm a kill switch and your team can instantly flip a flag off in production — with typed confirmation, ZSP, and a full audit trail.</p>
+          <p class="feature-desc">Arm a kill switch and your team can instantly flip a flag off in production — with
+            typed confirmation, ZSP, and a full audit trail.</p>
           <div class="feature-ks-demo">
             <div class="ks-row">
               <span class="ks-key">payment-failover</span>
@@ -358,22 +410,33 @@
 
         <div class="feature-card">
           <div class="feature-icon feature-icon-green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">Targeting &amp; Segments</h3>
-          <p class="feature-desc">Serve different flag values to different users using CEL-based rules, percentage rollouts, and reusable segment definitions.</p>
+          <p class="feature-desc">Serve different flag values to different users using CEL-based rules, percentage
+            rollouts, and reusable segment definitions.</p>
           <div class="feature-rule">
-            <div class="rule-line"><span class="rule-kw">if</span> <span class="rule-attr">user.plan</span> <span class="rule-op">==</span> <span class="rule-val">"enterprise"</span></div>
-            <div class="rule-line"><span class="rule-kw">then</span> <span class="rule-val">variant_b</span> <span class="rule-comment">// early access</span></div>
+            <div class="rule-line"><span class="rule-kw">if</span> <span class="rule-attr">user.plan</span> <span
+                class="rule-op">==</span> <span class="rule-val">"enterprise"</span></div>
+            <div class="rule-line"><span class="rule-kw">then</span> <span class="rule-val">variant_b</span> <span
+                class="rule-comment">// early access</span></div>
           </div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon feature-icon-blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">Real-time analytics</h3>
-          <p class="feature-desc">Track evaluation counts, SDK distribution, and environment breakdown. Spot anomalies before they become incidents.</p>
+          <p class="feature-desc">Track evaluation counts, SDK distribution, and environment breakdown. Spot anomalies
+            before they become incidents.</p>
           <div class="feature-mini-chart">
             <div class="mini-bar" style="height:40%;background:#0070f355"></div>
             <div class="mini-bar" style="height:60%;background:#0070f355"></div>
@@ -386,16 +449,23 @@
           </div>
           <div class="feature-stats-row">
             <div class="mini-stat"><span class="mini-val">1.24M</span><span class="mini-lbl">evals/day</span></div>
-            <div class="mini-stat"><span class="mini-val" style="color:#0cce6b">0.02%</span><span class="mini-lbl">error rate</span></div>
+            <div class="mini-stat"><span class="mini-val" style="color:#0cce6b">0.02%</span><span class="mini-lbl">error
+                rate</span></div>
           </div>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon feature-icon-yellow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
           <h3 class="feature-title">Compliance audit log</h3>
-          <p class="feature-desc">Every change to every flag is recorded with actor, timestamp, diff, and reason. Export for SOC 2, ISO 27001, or internal review.</p>
+          <p class="feature-desc">Every change to every flag is recorded with actor, timestamp, diff, and reason. Export
+            for SOC 2, ISO 27001, or internal review.</p>
           <div class="feature-audit">
             <div class="audit-row">
               <span class="audit-dot" style="background:#0cce6b"></span>
@@ -425,14 +495,16 @@
       <div class="section-header">
         <span class="section-eyebrow">Workflow</span>
         <h2 class="section-title">From commit to control</h2>
-        <p class="section-sub">flagctl fits into the workflow you already have — no new processes, no dashboards to babysit.</p>
+        <p class="section-sub">flagctl fits into the workflow you already have — no new processes, no dashboards to
+          babysit.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step-num">01</div>
           <div class="step-content">
             <h3 class="step-title">Define in YAML</h3>
-            <p class="step-desc">Create a flag definition in your repo. Specify type, lifecycle, environments, and targeting rules — all as code.</p>
+            <p class="step-desc">Create a flag definition in your repo. Specify type, lifecycle, environments, and
+              targeting rules — all as code.</p>
           </div>
         </div>
         <div class="step-connector"></div>
@@ -440,7 +512,8 @@
           <div class="step-num">02</div>
           <div class="step-content">
             <h3 class="step-title">Deploy via PR</h3>
-            <p class="step-desc">Open a pull request. CI validates schema, team reviews the diff. Merge triggers sync to the control plane via webhook or GitOps agent.</p>
+            <p class="step-desc">Open a pull request. CI validates schema, team reviews the diff. Merge triggers sync to
+              the control plane via webhook or GitOps agent.</p>
           </div>
         </div>
         <div class="step-connector"></div>
@@ -448,7 +521,8 @@
           <div class="step-num">03</div>
           <div class="step-content">
             <h3 class="step-title">Evaluate in SDK</h3>
-            <p class="step-desc">Your service calls the OpenFeature-compatible SDK. Flags are cached locally — P99 eval time is under 5ms with no added network hops.</p>
+            <p class="step-desc">Your service calls the OpenFeature-compatible SDK. Flags are cached locally — P99 eval
+              time is under 5ms with no added network hops.</p>
           </div>
         </div>
         <div class="step-connector"></div>
@@ -456,7 +530,8 @@
           <div class="step-num">04</div>
           <div class="step-content">
             <h3 class="step-title">Control in real-time</h3>
-            <p class="step-desc">Use the dashboard to adjust rollout percentages, arm kill switches, or update targeting rules — changes stream to SDKs via SSE in under 500ms.</p>
+            <p class="step-desc">Use the dashboard to adjust rollout percentages, arm kill switches, or update targeting
+              rules — changes stream to SDKs via SSE in under 500ms.</p>
           </div>
         </div>
       </div>
@@ -469,7 +544,8 @@
       <div class="section-header">
         <span class="section-eyebrow">SDK</span>
         <h2 class="section-title">Integrate in minutes</h2>
-        <p class="section-sub">OpenFeature-compatible. If you've used any major feature flag provider, you already know the API.</p>
+        <p class="section-sub">OpenFeature-compatible. If you've used any major feature flag provider, you already know
+          the API.</p>
       </div>
       <div class="code-showcase">
         <div class="code-tabs">
@@ -575,7 +651,8 @@ enabled = client.get_boolean_value(
       <div class="section-header">
         <span class="section-eyebrow">Pricing</span>
         <h2 class="section-title">Start free. Scale as you grow.</h2>
-        <p class="section-sub">No per-seat pricing. No eval limits on paid plans. One flat monthly fee per environment tier.</p>
+        <p class="section-sub">No per-seat pricing. No eval limits on paid plans. One flat monthly fee per environment
+          tier.</p>
       </div>
       <div class="pricing-grid">
 
@@ -588,11 +665,26 @@ enabled = client.get_boolean_value(
           <p class="pricing-tagline">Perfect for side projects and small teams getting started with feature flags.</p>
           <a href="#" class="btn btn-outline btn-full">Get started free</a>
           <ul class="pricing-features">
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 5 flags</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 1 environment</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 10K evaluations / mo</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Boolean flags only</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Community support</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Up to 5 flags</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> 1 environment</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> 10K evaluations / mo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Boolean flags only</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Community support</li>
           </ul>
         </div>
 
@@ -606,14 +698,38 @@ enabled = client.get_boolean_value(
           <p class="pricing-tagline">For growing teams running flags in production across multiple environments.</p>
           <a href="#" class="btn btn-primary btn-full">Start Pro trial</a>
           <ul class="pricing-features">
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited flags</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 5 environments</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 1M evaluations / mo</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> All flag types</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Segments &amp; targeting</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Kill switches</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Analytics &amp; audit log</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Email support</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Unlimited flags</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> 5 environments</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> 1M evaluations / mo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> All flag types</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Segments &amp; targeting</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Kill switches</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Analytics &amp; audit log</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Email support</li>
           </ul>
         </div>
 
@@ -622,16 +738,38 @@ enabled = client.get_boolean_value(
           <div class="pricing-price">
             <span class="pricing-amount">Custom</span>
           </div>
-          <p class="pricing-tagline">For organizations with compliance requirements, SSO needs, or high-volume evaluation.</p>
+          <p class="pricing-tagline">For organizations with compliance requirements, SSO needs, or high-volume
+            evaluation.</p>
           <a href="mailto:enterprise@flagctl.io" class="btn btn-outline btn-full">Talk to sales</a>
           <ul class="pricing-features">
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited everything</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> SSO / SAML</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> RBAC with custom roles</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Zero Standing Privilege</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Dedicated Slack channel</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 99.99% SLA</li>
-            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> SOC 2 Type II report</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Unlimited everything</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> SSO / SAML</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> RBAC with custom roles</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Zero Standing Privilege</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> Dedicated Slack channel</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> 99.99% SLA</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8l3.5 3.5L13 4" stroke="#0cce6b" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg> SOC 2 Type II report</li>
           </ul>
         </div>
 
@@ -649,7 +787,10 @@ enabled = client.get_boolean_value(
         <div class="cta-actions">
           <a href="#pricing" class="btn btn-primary btn-lg">Get started free</a>
           <a href="https://github.com/flagctl" class="btn btn-ghost btn-lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
             View on GitHub
           </a>
         </div>
@@ -709,4 +850,5 @@ enabled = client.get_boolean_value(
 
   <script src="script.js"></script>
 </body>
+
 </html>
