@@ -120,32 +120,13 @@ ul { list-style: none; }
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
 }
 
-.logo-mark {
-  width: 24px;
-  height: 24px;
-  background: var(--acc);
-  border-radius: 6px;
-  position: relative;
-}
-.logo-mark::after {
-  content: '';
-  position: absolute;
-  top: 5px; left: 5px;
-  width: 14px; height: 14px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 3px;
-}
-
-.logo-text {
-  font-size: 16px;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  letter-spacing: -0.03em;
-  color: var(--txt);
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
