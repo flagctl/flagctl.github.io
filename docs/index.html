@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — flagctl</title>
+  <meta name="description" content="Official documentation for flagctl — GitOps-native, OpenFeature-compatible feature flag management. Quickstart, SDK guides, CLI reference, and REST API." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://flagctl.github.io/docs/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+
+<body>
+
+  <!-- ===================== TOP NAV ===================== -->
+  <nav class="docs-topnav">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">flagctl</span>
+    </a>
+    <span class="docs-topnav-divider"></span>
+    <span class="docs-topnav-label">Docs</span>
+
+    <div class="docs-topnav-search" role="button" tabindex="0" aria-label="Search documentation">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="5" stroke="#888" stroke-width="1.5"/>
+        <path d="M11 11l3 3" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Search docs…
+      <kbd>⌘K</kbd>
+    </div>
+
+    <div class="docs-topnav-links">
+      <a href="/docs/" class="active">Docs</a>
+      <a href="/">Home</a>
+      <a href="https://github.com/cloudwalkersinc/flagctl-app" target="_blank" rel="noopener">GitHub</a>
+      <a href="/#pricing" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </nav>
+
+  <!-- ===================== DOCS LAYOUT ===================== -->
+  <div class="docs-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="docs-sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Getting Started</div>
+        <div class="sidebar-links">
+          <a href="#quickstart" class="sidebar-link active">Quickstart</a>
+          <a href="#concepts" class="sidebar-link">Core concepts</a>
+          <a href="#workspaces" class="sidebar-link">Workspaces</a>
+          <a href="#environments" class="sidebar-link">Environments</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Flags</div>
+        <div class="sidebar-links">
+          <a href="#flag-types" class="sidebar-link">Flag types</a>
+          <a href="#lifecycle" class="sidebar-link">Lifecycle stages</a>
+          <a href="#evaluation" class="sidebar-link">Evaluation</a>
+          <a href="#targeting" class="sidebar-link">Targeting &amp; rollout</a>
+          <a href="#kill-switches" class="sidebar-link">Kill switches</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">SDKs</div>
+        <div class="sidebar-links">
+          <a href="#java-sdk" class="sidebar-link">Java SDK</a>
+          <a href="#spring-boot" class="sidebar-link">Spring Boot Starter</a>
+          <a href="#go-sdk" class="sidebar-link">Go <span class="sidebar-badge soon">Soon</span></a>
+          <a href="#node-sdk" class="sidebar-link">Node.js <span class="sidebar-badge soon">Soon</span></a>
+          <a href="#python-sdk" class="sidebar-link">Python <span class="sidebar-badge soon">Soon</span></a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Tooling</div>
+        <div class="sidebar-links">
+          <a href="#cli" class="sidebar-link">CLI reference</a>
+          <a href="#rest-api" class="sidebar-link">REST API</a>
+          <a href="#manifest-api" class="sidebar-link">Manifest API</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Platform</div>
+        <div class="sidebar-links">
+          <a href="#api-keys" class="sidebar-link">API keys</a>
+          <a href="#segments" class="sidebar-link">Segments</a>
+          <a href="#audit-log" class="sidebar-link">Audit log</a>
+          <a href="#webhooks" class="sidebar-link">Webhooks <span class="sidebar-badge soon">Soon</span></a>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ===== CONTENT ===== -->
+    <main class="docs-content">
+      <div class="docs-content-inner">
+
+        <!-- ===================== QUICKSTART ===================== -->
+        <section class="docs-section" id="quickstart">
+          <h1>Documentation</h1>
+          <p class="page-desc">flagctl is a GitOps-native, OpenFeature-compatible feature flag platform. Define flags as code, deploy via PR, and evaluate in milliseconds — no network hops at runtime.</p>
+
+          <h2>Quickstart</h2>
+          <p>Get your first flag evaluated in production in under 5 minutes.</p>
+
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>Create an account</h4>
+                <p>Sign up at <strong>app.flagctl.io</strong>. You'll be prompted to create an organization and name your first workspace. The workspace slug becomes your API subdomain (e.g. <code>acme.flagctl.io</code>).</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>Create an environment</h4>
+                <p>Go to <strong>Environments</strong> and create one — for example <code>production</code>. Each environment has a slug used in API calls and SDK configuration.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>Create your first flag</h4>
+                <p>Go to <strong>Flags → New flag</strong>. Give it a key like <code>checkout-v2</code>, set the type to <code>boolean</code>, and enable it in your environment at 100% rollout.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>Generate an API key</h4>
+                <p>Go to <strong>Settings → API Keys → New key</strong>. Choose type <code>server</code> for backend services. Copy the key — it starts with <code>fctl_sk_</code>.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>Install the SDK and evaluate</h4>
+                <p>See the <a href="#java-sdk">Java SDK</a> or <a href="#spring-boot">Spring Boot Starter</a> section below. Within seconds of calling <code>getBooleanValue</code>, you'll see the evaluation in the analytics dashboard.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-tip">
+            <span class="callout-icon">💡</span>
+            <div>Flag manifests are cached locally by the SDK and refreshed via polling (default 30 s). Evaluation never blocks on a network call — P99 is under 5 ms.</div>
+          </div>
+        </section>
+
+        <!-- ===================== CORE CONCEPTS ===================== -->
+        <section class="docs-section" id="concepts">
+          <h2>Core concepts</h2>
+          <p>flagctl is built around a small set of primitives that compose together.</p>
+
+          <div class="card-grid">
+            <a href="#flag-types" class="doc-card">
+              <h4>Flag</h4>
+              <p>A named boolean, string, integer, or double value that can be toggled per environment.</p>
+            </a>
+            <a href="#environments" class="doc-card">
+              <h4>Environment</h4>
+              <p>An isolated deployment context (e.g. production, staging). Each flag has independent state per environment.</p>
+            </a>
+            <a href="#workspaces" class="doc-card">
+              <h4>Workspace</h4>
+              <p>Tenant boundary — maps to a subdomain. Flags, environments, and API keys are scoped to a workspace.</p>
+            </a>
+            <a href="#targeting" class="doc-card">
+              <h4>Targeting</h4>
+              <p>Serve different values to different users via percentage rollouts and segment rules.</p>
+            </a>
+            <a href="#kill-switches" class="doc-card">
+              <h4>Kill switch</h4>
+              <p>Arm a flag to give your team an emergency shut-off, with ZSP and a typed confirmation.</p>
+            </a>
+            <a href="#audit-log" class="doc-card">
+              <h4>Audit log</h4>
+              <p>Every flag change — actor, timestamp, diff — recorded immutably.</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- ===================== WORKSPACES ===================== -->
+        <section class="docs-section" id="workspaces">
+          <h2>Workspaces</h2>
+          <p>A workspace is your top-level tenant. It maps to a subdomain on <code>flagctl.io</code>. All resources — flags, environments, API keys, audit logs, members — are scoped to a single workspace.</p>
+
+          <h3>Slug rules</h3>
+          <p>Workspace slugs follow RFC 1123 DNS label rules:</p>
+          <ul>
+            <li>Lowercase alphanumeric characters and hyphens only</li>
+            <li>3–63 characters</li>
+            <li>Cannot start or end with a hyphen</li>
+          </ul>
+          <p>Once set, the slug cannot be changed. Your API and SDK base URL will be <code>https://&lt;slug&gt;.flagctl.io</code>.</p>
+
+          <h3>Multi-tenancy</h3>
+          <p>flagctl's Cloudflare Worker intercepts all <code>*.flagctl.io</code> traffic, extracts the workspace slug from the subdomain, and injects it as an HTTP header before routing to the API. Your SDK and CLI never parse the subdomain themselves — they just hit your workspace URL.</p>
+        </section>
+
+        <!-- ===================== ENVIRONMENTS ===================== -->
+        <section class="docs-section" id="environments">
+          <h2>Environments</h2>
+          <p>Environments represent isolated deployment contexts for your flags — typically <code>production</code>, <code>staging</code>, and <code>development</code>.</p>
+
+          <p>Each flag has an independent record per environment:</p>
+          <ul>
+            <li><strong>enabled</strong> — whether the flag is on in this environment</li>
+            <li><strong>rollout</strong> — percentage of users who receive the active value (0–100)</li>
+            <li><strong>default value</strong> — value served when the flag is disabled or the user is outside the rollout bucket</li>
+          </ul>
+
+          <h3>Production flag</h3>
+          <p>One environment per workspace can be designated as <strong>production</strong>. Production environments have stricter controls: kill switch arming requires typed confirmation, and certain mutations are audit-logged with higher severity.</p>
+
+          <h3>Environment slugs</h3>
+          <p>Every environment has a slug (e.g. <code>production</code>, <code>staging</code>) used in:</p>
+          <ul>
+            <li>The Manifest API: <code>GET /api/v1/manifest/{envSlug}</code></li>
+            <li>SDK and starter configuration: <code>flagctl.environment: production</code></li>
+            <li>CLI context: <code>flagctl context set --environment production</code></li>
+          </ul>
+        </section>
+
+        <!-- ===================== FLAG TYPES ===================== -->
+        <section class="docs-section" id="flag-types">
+          <h2>Flag types</h2>
+          <p>Every flag has a type that determines the shape of its value. The type is fixed at creation and cannot be changed.</p>
+
+          <div class="docs-table-wrap">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>OpenFeature method</th>
+                  <th>Example values</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>boolean</code></td>
+                  <td><code>getBooleanValue()</code></td>
+                  <td><code>true</code>, <code>false</code></td>
+                </tr>
+                <tr>
+                  <td><code>string</code></td>
+                  <td><code>getStringValue()</code></td>
+                  <td><code>"dark"</code>, <code>"variant_b"</code></td>
+                </tr>
+                <tr>
+                  <td><code>integer</code></td>
+                  <td><code>getIntegerValue()</code></td>
+                  <td><code>100</code>, <code>5000</code></td>
+                </tr>
+                <tr>
+                  <td><code>double</code></td>
+                  <td><code>getDoubleValue()</code></td>
+                  <td><code>0.5</code>, <code>1.25</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">ℹ</span>
+            <div>The flag's <strong>default value</strong> is what the SDK returns when the flag is disabled, archived, the user is outside the rollout percentage, or evaluation fails for any reason. It is stored as a string internally and parsed to the flag's declared type at evaluation time.</div>
+          </div>
+        </section>
+
+        <!-- ===================== LIFECYCLE ===================== -->
+        <section class="docs-section" id="lifecycle">
+          <h2>Lifecycle stages</h2>
+          <p>Lifecycle stages communicate intent and help teams track which flags need cleanup.</p>
+
+          <div class="docs-table-wrap">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th>Stage</th>
+                  <th>Description</th>
+                  <th>Typical action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge-blue">experiment</span></td>
+                  <td>A/B test or controlled rollout. Temporary by nature.</td>
+                  <td>Delete after rollout is complete and data is analyzed.</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-green">release</span></td>
+                  <td>Gating a feature during a phased release.</td>
+                  <td>Remove the flag from code once fully rolled out.</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-yellow">operational</span></td>
+                  <td>Long-lived operational control. Expected to persist.</td>
+                  <td>Keep indefinitely. Document owner and purpose.</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-red">kill-switch</span></td>
+                  <td>Emergency shut-off for a critical path. Armed by default.</td>
+                  <td>Review kill switch drills quarterly.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Status vs lifecycle</h3>
+          <p><strong>Status</strong> describes the operational state: <code>active</code>, <code>inactive</code>, or <code>archived</code>. Archived flags are excluded from the manifest and never evaluated. <strong>Lifecycle</strong> describes the intent and expected lifespan.</p>
+        </section>
+
+        <!-- ===================== EVALUATION ===================== -->
+        <section class="docs-section" id="evaluation">
+          <h2>Evaluation</h2>
+          <p>Flag evaluation happens entirely in the SDK against a locally cached manifest. There is no network call at evaluation time.</p>
+
+          <h3>Evaluation order</h3>
+          <ol>
+            <li>If the flag key is not found in the manifest → return default value with reason <code>ERROR / FLAG_NOT_FOUND</code></li>
+            <li>If <code>killSwitchArmed</code> is <code>true</code> and the flag is not enabled → return default value with reason <code>DISABLED</code></li>
+            <li>If the flag is not enabled → return default value with reason <code>DISABLED</code></li>
+            <li>If <code>rollout &lt; 100</code> and a targeting key (user ID) is provided → bucket the user deterministically. Users outside the bucket receive the default value with reason <code>DEFAULT</code></li>
+            <li>Otherwise → return <code>flag.defaultValue</code> with reason <code>DEFAULT</code></li>
+          </ol>
+
+          <h3>Evaluation reasons</h3>
+          <div class="docs-table-wrap">
+            <table class="docs-table">
+              <thead>
+                <tr><th>Reason</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>DEFAULT</code></td><td>Flag is enabled; value comes from the flag's configured default value.</td></tr>
+                <tr><td><code>DISABLED</code></td><td>Flag is disabled or kill switch has been activated.</td></tr>
+                <tr><td><code>ERROR</code></td><td>Evaluation could not proceed. Check <code>getErrorCode()</code> for details.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Manifest caching</h3>
+          <p>On startup, the SDK fetches <code>GET /api/v1/manifest/{envSlug}</code> and stores it in memory. A background daemon thread polls this endpoint every <em>N</em> seconds (default 30, minimum 5). The API returns a <code>304 Not Modified</code> when the manifest hasn't changed (via ETag), so network traffic is minimal at steady state.</p>
+
+          <p>If polling fails (network error, transient 5xx), the SDK logs a warning and continues serving the stale cached manifest. Your service never goes down because of a flagctl outage.</p>
+        </section>
+
+        <!-- ===================== TARGETING ===================== -->
+        <section class="docs-section" id="targeting">
+          <h2>Targeting &amp; rollout</h2>
+          <p>Percentage rollout lets you gradually roll out a flag to a fraction of your users while keeping the rest on the default value.</p>
+
+          <h3>How bucketing works</h3>
+          <p>flagctl uses <strong>MurmurHash3 (x86-32)</strong> to assign each user to a bucket 0–99. The bucket key is <code>"{flagKey}:{userId}"</code>. If <code>bucket &lt; rolloutPct</code>, the user is in the rollout.</p>
+
+          <p>This means:</p>
+          <ul>
+            <li>Bucketing is <strong>deterministic</strong> — the same user always gets the same value for the same flag</li>
+            <li>It is <strong>independent per flag</strong> — user 42 might be in the bucket for <code>checkout-v2</code> but not for <code>new-pricing</code></li>
+            <li>Changing the rollout percentage from 20% to 30% adds new users but does not reassign existing ones</li>
+          </ul>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">java</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-cm">// Pass a targeting key to participate in rollout bucketing</span>
+<span class="t-type">MutableContext</span> ctx = <span class="t-kw">new</span> <span class="t-type">MutableContext</span>(user.getId());
+ctx.add(<span class="t-str">"plan"</span>, user.getPlan());
+
+<span class="t-type">boolean</span> enabled = flags.getBooleanValue(<span class="t-str">"checkout-v2"</span>, <span class="t-bool">false</span>, ctx);</pre>
+          </div>
+
+          <div class="callout callout-warn">
+            <span class="callout-icon">⚠</span>
+            <div>If no targeting key is provided (anonymous evaluation), rollout bucketing is skipped and the flag evaluates as if it is at 0% rollout — the default value is returned.</div>
+          </div>
+
+          <h3>Segments</h3>
+          <p>Segments are reusable user groups you define once and reference across many flags. A segment specifies attribute-based rules (e.g. <code>plan == "enterprise"</code>). When a flag targets a segment, users matching that segment receive the flag's enabled value regardless of the rollout percentage.</p>
+
+          <p>Segments are managed under <strong>Segments</strong> in the sidebar of the flagctl dashboard.</p>
+        </section>
+
+        <!-- ===================== KILL SWITCHES ===================== -->
+        <section class="docs-section" id="kill-switches">
+          <h2>Kill switches</h2>
+          <p>A kill switch is a flag in the <code>kill-switch</code> lifecycle stage with <code>killSwitchArmed: true</code>. When armed, your on-call team can disable the feature in production in one click — without a deploy.</p>
+
+          <h3>Arming a kill switch</h3>
+          <p>Setting a flag's lifecycle to <code>kill-switch</code> and enabling the kill switch arm toggles <code>killSwitchArmed</code> to <code>true</code> in the manifest. The flag continues to serve its enabled value until explicitly activated (shut off).</p>
+
+          <h3>Activating (firing) the kill switch</h3>
+          <p>To activate, go to the flag detail page and click <strong>Activate kill switch</strong>. You must type <code>CONFIRM</code> to proceed. This sets the flag to disabled, triggering a manifest update that propagates to all SDK instances within one polling interval (≤30 s by default).</p>
+
+          <p>The action is recorded in the audit log with actor identity, timestamp, and the reason field you provide.</p>
+
+          <h3>Zero Standing Privilege</h3>
+          <p>Kill switch activation requires the typed confirmation to prevent accidental clicks. Only members with the <code>operator</code> or <code>admin</code> role can arm or activate kill switches. Every activation creates an immutable audit record — a requirement for SOC 2 incident response evidence.</p>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">ℹ</span>
+            <div>SSE (Server-Sent Events) is not yet available in the SDK — SDKs poll the manifest. A kill switch propagates within one full poll interval of all connected SDKs.</div>
+          </div>
+        </section>
+
+        <!-- ===================== JAVA SDK ===================== -->
+        <section class="docs-section" id="java-sdk">
+          <h2>Java SDK</h2>
+          <p>The flagctl Java SDK implements the <a href="https://openfeature.dev" target="_blank" rel="noopener">OpenFeature</a> <code>FeatureProvider</code> interface. It fetches and caches the flag manifest, evaluates flags locally, and polls for updates in the background.</p>
+
+          <h3>Requirements</h3>
+          <ul>
+            <li>Java 17+</li>
+            <li>Maven (included wrapper in the repo)</li>
+          </ul>
+
+          <h3>Installation</h3>
+          <p>The SDK is published to GitHub Packages. Add the repository to your <code>pom.xml</code>:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">xml — pom.xml</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-kw">&lt;repositories&gt;</span>
+  <span class="t-kw">&lt;repository&gt;</span>
+    <span class="t-kw">&lt;id&gt;</span>github<span class="t-kw">&lt;/id&gt;</span>
+    <span class="t-kw">&lt;url&gt;</span>https://maven.pkg.github.com/cloudwalkersinc/flagctl-app<span class="t-kw">&lt;/url&gt;</span>
+  <span class="t-kw">&lt;/repository&gt;</span>
+<span class="t-kw">&lt;/repositories&gt;</span>
+
+<span class="t-kw">&lt;dependencies&gt;</span>
+  <span class="t-kw">&lt;dependency&gt;</span>
+    <span class="t-kw">&lt;groupId&gt;</span>io.flagctl<span class="t-kw">&lt;/groupId&gt;</span>
+    <span class="t-kw">&lt;artifactId&gt;</span>flagctl-sdk-java<span class="t-kw">&lt;/artifactId&gt;</span>
+    <span class="t-kw">&lt;version&gt;</span>0.1.0<span class="t-kw">&lt;/version&gt;</span>
+  <span class="t-kw">&lt;/dependency&gt;</span>
+<span class="t-kw">&lt;/dependencies&gt;</span></pre>
+          </div>
+
+          <p>GitHub Packages requires authentication. Add a Personal Access Token (PAT) with <code>read:packages</code> scope to <code>~/.m2/settings.xml</code>:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">xml — ~/.m2/settings.xml</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-kw">&lt;settings&gt;</span>
+  <span class="t-kw">&lt;servers&gt;</span>
+    <span class="t-kw">&lt;server&gt;</span>
+      <span class="t-kw">&lt;id&gt;</span>github<span class="t-kw">&lt;/id&gt;</span>
+      <span class="t-kw">&lt;username&gt;</span>YOUR_GITHUB_USERNAME<span class="t-kw">&lt;/username&gt;</span>
+      <span class="t-kw">&lt;password&gt;</span>YOUR_PAT<span class="t-kw">&lt;/password&gt;</span>
+    <span class="t-kw">&lt;/server&gt;</span>
+  <span class="t-kw">&lt;/servers&gt;</span>
+<span class="t-kw">&lt;/settings&gt;</span></pre>
+          </div>
+
+          <h3>Initialization</h3>
+          <p>Create a <code>FlagctlProvider</code> once at application startup and register it with OpenFeature:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">java</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-kw">import</span> io.flagctl.sdk.FlagctlSdk;
+<span class="t-kw">import</span> io.flagctl.sdk.FlagctlProvider;
+<span class="t-kw">import</span> dev.openfeature.sdk.OpenFeatureAPI;
+<span class="t-kw">import</span> dev.openfeature.sdk.Client;
+
+<span class="t-cm">// Build the provider — validates config and starts polling</span>
+<span class="t-type">FlagctlProvider</span> provider = <span class="t-type">FlagctlSdk</span>.builder()
+    .baseUrl(<span class="t-str">"https://acme.flagctl.io"</span>)     <span class="t-cm">// your workspace URL</span>
+    .apiKey(<span class="t-str">"fctl_sk_..."</span>)                 <span class="t-cm">// server API key</span>
+    .environment(<span class="t-str">"production"</span>)             <span class="t-cm">// environment slug</span>
+    .pollIntervalSeconds(<span class="t-num">30</span>)               <span class="t-cm">// optional, default 30, min 5</span>
+    .build();
+
+<span class="t-cm">// Register as global OpenFeature provider and block until the first manifest is fetched</span>
+<span class="t-type">OpenFeatureAPI</span>.getInstance().setProviderAndWait(provider);
+
+<span class="t-cm">// Obtain a client — use this everywhere</span>
+<span class="t-type">Client</span> flags = <span class="t-type">OpenFeatureAPI</span>.getInstance().getClient();</pre>
+          </div>
+
+          <h3>Evaluating flags</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">java</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-kw">import</span> dev.openfeature.sdk.MutableContext;
+<span class="t-kw">import</span> dev.openfeature.sdk.FlagEvaluationDetails;
+
+<span class="t-cm">// Build evaluation context — the targeting key drives rollout bucketing</span>
+<span class="t-type">MutableContext</span> ctx = <span class="t-kw">new</span> <span class="t-type">MutableContext</span>(user.getId());
+ctx.add(<span class="t-str">"plan"</span>, user.getPlan());
+
+<span class="t-cm">// Boolean flag</span>
+<span class="t-type">boolean</span> checkoutV2 = flags.getBooleanValue(<span class="t-str">"checkout-v2"</span>, <span class="t-bool">false</span>, ctx);
+
+<span class="t-cm">// String flag</span>
+<span class="t-type">String</span> theme = flags.getStringValue(<span class="t-str">"ui.theme"</span>, <span class="t-str">"light"</span>, ctx);
+
+<span class="t-cm">// Integer flag</span>
+<span class="t-type">int</span> limit = flags.getIntegerValue(<span class="t-str">"rate.limit"</span>, <span class="t-num">1000</span>, ctx);
+
+<span class="t-cm">// Inspect evaluation details</span>
+<span class="t-type">FlagEvaluationDetails</span>&lt;<span class="t-type">Boolean</span>&gt; details =
+    flags.getBooleanDetails(<span class="t-str">"checkout-v2"</span>, <span class="t-bool">false</span>, ctx);
+
+details.getValue();         <span class="t-cm">// resolved value</span>
+details.getReason();        <span class="t-cm">// "DEFAULT", "DISABLED", "ERROR"</span>
+details.getErrorCode();     <span class="t-cm">// non-null only on error</span>
+details.getErrorMessage();  <span class="t-cm">// human-readable error</span></pre>
+          </div>
+
+          <h3>Shutdown</h3>
+          <p>Call <code>OpenFeatureAPI.getInstance().shutdown()</code> during application shutdown to stop the polling thread cleanly. In Spring Boot, this is handled automatically by the starter's <code>OpenFeatureRegistrar</code>.</p>
+        </section>
+
+        <!-- ===================== SPRING BOOT ===================== -->
+        <section class="docs-section" id="spring-boot">
+          <h2>Spring Boot Starter</h2>
+          <p><code>flagctl-spring-boot-starter</code> is a zero-boilerplate Spring Boot 3.x auto-configuration. Drop it in and configure three properties — no manual provider setup required.</p>
+
+          <h3>Installation</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">xml — pom.xml</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-kw">&lt;repositories&gt;</span>
+  <span class="t-kw">&lt;repository&gt;</span>
+    <span class="t-kw">&lt;id&gt;</span>github<span class="t-kw">&lt;/id&gt;</span>
+    <span class="t-kw">&lt;url&gt;</span>https://maven.pkg.github.com/cloudwalkersinc/flagctl-app<span class="t-kw">&lt;/url&gt;</span>
+  <span class="t-kw">&lt;/repository&gt;</span>
+<span class="t-kw">&lt;/repositories&gt;</span>
+
+<span class="t-kw">&lt;dependency&gt;</span>
+  <span class="t-kw">&lt;groupId&gt;</span>io.flagctl<span class="t-kw">&lt;/groupId&gt;</span>
+  <span class="t-kw">&lt;artifactId&gt;</span>flagctl-spring-boot-starter<span class="t-kw">&lt;/artifactId&gt;</span>
+  <span class="t-kw">&lt;version&gt;</span>0.1.0<span class="t-kw">&lt;/version&gt;</span>
+<span class="t-kw">&lt;/dependency&gt;</span></pre>
+          </div>
+
+          <h3>Configuration</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">yaml — application.yaml</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-yaml-key">flagctl</span><span class="t-kw">:</span>
+  <span class="t-yaml-key">base-url</span><span class="t-kw">:</span> <span class="t-yaml-val">https://acme.flagctl.io</span>    <span class="t-cm"># your workspace URL</span>
+  <span class="t-yaml-key">api-key</span><span class="t-kw">:</span>  <span class="t-yaml-val">fctl_sk_...</span>               <span class="t-cm"># server or personal API key</span>
+  <span class="t-yaml-key">environment</span><span class="t-kw">:</span> <span class="t-yaml-val">production</span>              <span class="t-cm"># environment slug</span>
+  <span class="t-yaml-key">poll-interval-seconds</span><span class="t-kw">:</span> <span class="t-num">30</span>          <span class="t-cm"># optional, default 30, min 5</span>
+  <span class="t-yaml-key">enabled</span><span class="t-kw">:</span> <span class="t-bool">true</span>                       <span class="t-cm"># set false to disable in tests</span></pre>
+          </div>
+
+          <h3>Usage</h3>
+          <p>Inject the OpenFeature <code>Client</code> anywhere in your application:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">java</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-ann">@Service</span>
+<span class="t-kw">public class</span> <span class="t-type">CheckoutService</span> {
+
+    <span class="t-kw">private final</span> <span class="t-type">Client</span> flags =
+        <span class="t-type">OpenFeatureAPI</span>.getInstance().getClient();
+
+    <span class="t-kw">public</span> <span class="t-type">OrderResult</span> checkout(<span class="t-type">User</span> user, <span class="t-type">Cart</span> cart) {
+        <span class="t-type">MutableContext</span> ctx = <span class="t-kw">new</span> <span class="t-type">MutableContext</span>(user.getId());
+        ctx.add(<span class="t-str">"plan"</span>, user.getPlan());
+
+        <span class="t-kw">if</span> (flags.getBooleanValue(<span class="t-str">"checkout-v2"</span>, <span class="t-bool">false</span>, ctx)) {
+            <span class="t-kw">return</span> checkoutV2(user, cart);
+        }
+        <span class="t-kw">return</span> checkoutV1(user, cart);
+    }
+}</pre>
+          </div>
+
+          <h3>Disabling in tests</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">yaml — src/test/resources/application-test.yaml</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-yaml-key">flagctl</span><span class="t-kw">:</span>
+  <span class="t-yaml-key">enabled</span><span class="t-kw">:</span> <span class="t-bool">false</span></pre>
+          </div>
+
+          <h3>Actuator endpoint</h3>
+          <p>When <code>spring-boot-actuator</code> is on the classpath, <code>/actuator/flagctl</code> reports provider status:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">json — GET /actuator/flagctl</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre>{
+  <span class="t-prop">"provider"</span>: <span class="t-str">"flagctl"</span>,
+  <span class="t-prop">"state"</span>: <span class="t-str">"READY"</span>,
+  <span class="t-prop">"environment"</span>: <span class="t-str">"production"</span>,
+  <span class="t-prop">"baseUrl"</span>: <span class="t-str">"https://acme.flagctl.io"</span>,
+  <span class="t-prop">"pollIntervalSeconds"</span>: <span class="t-num">30</span>
+}</pre>
+          </div>
+
+          <p>To expose it, add <code>flagctl</code> to <code>management.endpoints.web.exposure.include</code> in your config.</p>
+        </section>
+
+        <!-- ===================== CLI ===================== -->
+        <section class="docs-section" id="cli">
+          <h2>CLI reference</h2>
+          <p>The <code>flagctl</code> CLI gives you full flag management from the terminal. It uses the same API as the UI — all operations are reflected in the audit log.</p>
+
+          <h3>Installation</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-cm"># Build from source (requires Go 1.22+)</span>
+git clone https://github.com/cloudwalkersinc/flagctl-app
+cd flagctl-cli
+make install   <span class="t-cm"># installs to /usr/local/bin/flagctl</span>
+
+<span class="t-cm"># Or build locally without installing</span>
+make build     <span class="t-cm"># outputs to ./bin/flagctl</span></pre>
+          </div>
+
+          <h3>Authentication</h3>
+          <p>The CLI authenticates using a <strong>server</strong> or <strong>personal API key</strong> created in <strong>Settings → API Keys</strong>. JWT tokens from the browser session are not accepted by the CLI.</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-cm"># Login — saves config to ~/.flagctl/config.yaml</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">auth login</span> \
+  <span class="t-flag">--api-key</span> fctl_sk_... \
+  <span class="t-flag">--workspace</span> acme
+
+<span class="t-cm"># Verify the stored credentials</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">auth whoami</span>
+
+<span class="t-cm"># Log out (removes stored API key)</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">auth logout</span></pre>
+          </div>
+
+          <h3>Context management</h3>
+          <p>The context is the combination of workspace and environment used for all flag commands. You can switch contexts without re-authenticating.</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-cm"># Set the active context</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">context set</span> \
+  <span class="t-flag">--workspace</span> acme \
+  <span class="t-flag">--environment</span> production
+
+<span class="t-cm"># View the active context</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">context get</span>
+
+<span class="t-out"># Output:
+# workspace:   acme
+# environment: production</span></pre>
+          </div>
+
+          <h3>Flag commands</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="t-cm"># List all flags in the active environment</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag list</span>
+
+<span class="t-cm"># Show a specific flag</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag get</span> checkout-v2
+
+<span class="t-cm"># Enable a flag in the current environment</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag enable</span> checkout-v2
+
+<span class="t-cm"># Disable a flag</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag disable</span> checkout-v2
+
+<span class="t-cm"># Set rollout percentage</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag set-rollout</span> checkout-v2 <span class="t-flag">--pct</span> 50
+
+<span class="t-cm"># Override environment for a single command</span>
+<span class="t-cli">flagctl</span> <span class="t-flag">flag list</span> <span class="t-flag">--environment</span> staging</pre>
+          </div>
+
+          <h3>Configuration file</h3>
+          <p>The CLI stores its configuration at <code>~/.flagctl/config.yaml</code>. You can edit it directly or manage it via <code>flagctl auth</code> and <code>flagctl context</code> commands.</p>
+        </section>
+
+        <!-- ===================== REST API ===================== -->
+        <section class="docs-section" id="rest-api">
+          <h2>REST API</h2>
+          <p>All flagctl operations are available through the REST API. The base URL is <code>https://&lt;workspace-slug&gt;.flagctl.io</code>.</p>
+
+          <h3>Authentication</h3>
+          <p>Pass your API key as a Bearer token in the <code>Authorization</code> header:</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">bash</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre>curl https://acme.flagctl.io/api/v1/flags \
+  -H <span class="t-str">"Authorization: Bearer fctl_sk_..."</span></pre>
+          </div>
+
+          <h3>Key endpoints</h3>
+
+          <div class="docs-table-wrap">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Path</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge-green">GET</span></td>
+                  <td><code>/api/v1/flags</code></td>
+                  <td>List all flags in the workspace</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-blue">POST</span></td>
+                  <td><code>/api/v1/flags</code></td>
+                  <td>Create a flag</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-green">GET</span></td>
+                  <td><code>/api/v1/flags/{key}</code></td>
+                  <td>Get a flag by key</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-yellow">PUT</span></td>
+                  <td><code>/api/v1/flags/{key}</code></td>
+                  <td>Update a flag</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-red">DELETE</span></td>
+                  <td><code>/api/v1/flags/{key}</code></td>
+                  <td>Archive a flag</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-green">GET</span></td>
+                  <td><code>/api/v1/envs</code></td>
+                  <td>List environments</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-blue">POST</span></td>
+                  <td><code>/api/v1/envs</code></td>
+                  <td>Create an environment</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-green">GET</span></td>
+                  <td><code>/api/v1/manifest/{envSlug}</code></td>
+                  <td>Fetch the flag manifest for an environment (used by SDKs)</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-green">GET</span></td>
+                  <td><code>/api/v1/audit</code></td>
+                  <td>List audit log entries</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Error responses</h3>
+          <p>All error responses return JSON with <code>status</code>, <code>message</code>, and optional <code>detail</code> fields.</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">json — 404 Not Found</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre>{
+  <span class="t-prop">"status"</span>: <span class="t-num">404</span>,
+  <span class="t-prop">"message"</span>: <span class="t-str">"Flag not found: checkout-v3"</span>
+}</pre>
+          </div>
+        </section>
+
+        <!-- ===================== MANIFEST API ===================== -->
+        <section class="docs-section" id="manifest-api">
+          <h2>Manifest API</h2>
+          <p>The Manifest API is the primary data feed for SDK instances. SDKs poll this endpoint to keep their local cache up to date.</p>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">http</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre>GET /api/v1/manifest/{envSlug}
+Authorization: Bearer fctl_sk_...</pre>
+          </div>
+
+          <h3>Caching</h3>
+          <p>The response includes an <code>ETag</code> header (SHA-256 of the sorted flag list). On subsequent requests, pass the previous ETag as <code>If-None-Match</code>. If the manifest hasn't changed, the API returns <code>304 Not Modified</code> with no body — minimizing bandwidth at scale.</p>
+
+          <p>The <code>Cache-Control</code> header is <code>public, max-age=30, stale-while-revalidate=60</code>.</p>
+
+          <h3>Response shape</h3>
+
+          <div class="code-block-wrap">
+            <div class="code-block-header">
+              <span class="code-lang">json</span>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre>{
+  <span class="t-prop">"version"</span>: <span class="t-num">1</span>,
+  <span class="t-prop">"generatedAt"</span>: <span class="t-str">"2026-06-17T12:00:00Z"</span>,
+  <span class="t-prop">"environment"</span>: {
+    <span class="t-prop">"id"</span>: <span class="t-str">"..."</span>,
+    <span class="t-prop">"slug"</span>: <span class="t-str">"production"</span>,
+    <span class="t-prop">"name"</span>: <span class="t-str">"Production"</span>,
+    <span class="t-prop">"isProduction"</span>: <span class="t-bool">true</span>
+  },
+  <span class="t-prop">"flags"</span>: [
+    {
+      <span class="t-prop">"key"</span>: <span class="t-str">"checkout-v2"</span>,
+      <span class="t-prop">"type"</span>: <span class="t-str">"boolean"</span>,
+      <span class="t-prop">"enabled"</span>: <span class="t-bool">true</span>,
+      <span class="t-prop">"status"</span>: <span class="t-str">"active"</span>,
+      <span class="t-prop">"defaultValue"</span>: <span class="t-str">"true"</span>,
+      <span class="t-prop">"rollout"</span>: <span class="t-num">80</span>,
+      <span class="t-prop">"killSwitchArmed"</span>: <span class="t-bool">false</span>,
+      <span class="t-prop">"updatedAt"</span>: <span class="t-str">"2026-06-15T09:32:11Z"</span>
+    }
+  ]
+}</pre>
+          </div>
+        </section>
+
+        <!-- ===================== API KEYS ===================== -->
+        <section class="docs-section" id="api-keys">
+          <h2>API keys</h2>
+          <p>API keys authenticate requests from SDKs, the CLI, and direct API calls. They are not the same as your personal login credentials.</p>
+
+          <h3>Key types</h3>
+
+          <div class="docs-table-wrap">
+            <table class="docs-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Prefix</th>
+                  <th>Use for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Server</strong></td>
+                  <td><code>fctl_sk_</code></td>
+                  <td>Backend services, SDKs, CI/CD pipelines. Has read and write access.</td>
+                </tr>
+                <tr>
+                  <td><strong>Personal</strong></td>
+                  <td><code>fctl_pk_</code></td>
+                  <td>CLI use for individual developers. Tied to your user account.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Creating a key</h3>
+          <p>Go to <strong>Settings → API Keys → New key</strong>. Give it a descriptive name (e.g. <code>production-backend</code>). The full key is shown <strong>only once</strong> at creation — copy it immediately. All subsequent views show only the last 4 characters.</p>
+
+          <h3>Revoking a key</h3>
+          <p>Click the key in the API Keys list and select <strong>Revoke</strong>. Revocation is immediate. SDKs using the revoked key will receive <code>401 Unauthorized</code> on their next poll cycle.</p>
+
+          <div class="callout callout-warn">
+            <span class="callout-icon">⚠</span>
+            <div>Never commit API keys to source control. Use environment variables or a secrets manager (e.g. AWS Secrets Manager, HashiCorp Vault) to inject keys at runtime.</div>
+          </div>
+        </section>
+
+        <!-- ===================== SEGMENTS ===================== -->
+        <section class="docs-section" id="segments">
+          <h2>Segments</h2>
+          <p>Segments are named, reusable collections of users defined by attribute rules. Reference a segment in a flag's targeting configuration to serve a specific value to all matching users.</p>
+
+          <h3>Creating a segment</h3>
+          <p>Go to <strong>Segments → New segment</strong>. Define one or more rules:</p>
+          <ul>
+            <li><strong>Attribute</strong> — any attribute passed in the evaluation context (e.g. <code>plan</code>, <code>country</code>, <code>email</code>)</li>
+            <li><strong>Operator</strong> — <code>equals</code>, <code>not_equals</code>, <code>contains</code>, <code>starts_with</code>, <code>in</code></li>
+            <li><strong>Value</strong> — the value to match against</li>
+          </ul>
+
+          <h3>Using a segment in a flag</h3>
+          <p>When editing a flag, add a targeting rule that references a segment. Users who match the segment receive the flag's active value, bypassing the percentage rollout.</p>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">ℹ</span>
+            <div>Segment evaluation happens in the SDK against attributes you provide in <code>EvaluationContext</code>. Attributes not passed at evaluation time cannot be matched — make sure your services pass all relevant user attributes.</div>
+          </div>
+        </section>
+
+        <!-- ===================== AUDIT LOG ===================== -->
+        <section class="docs-section" id="audit-log">
+          <h2>Audit log</h2>
+          <p>Every mutation to flags, environments, API keys, and members is recorded with full context. The audit log is immutable — entries cannot be deleted or edited.</p>
+
+          <h3>What's logged</h3>
+          <ul>
+            <li>Flag created, updated, enabled, disabled, archived</li>
+            <li>Environment created, updated, deleted</li>
+            <li>Kill switch armed, activated</li>
+            <li>API key created, revoked</li>
+            <li>Member invited, removed, role changed</li>
+          </ul>
+
+          <h3>Each entry contains</h3>
+          <ul>
+            <li><strong>Actor</strong> — user email, API key name, or <code>sdk</code> for automated operations</li>
+            <li><strong>Action</strong> — e.g. <code>FLAG_ENABLED</code>, <code>KILL_SWITCH_ACTIVATED</code></li>
+            <li><strong>Resource</strong> — flag key, environment slug, etc.</li>
+            <li><strong>Timestamp</strong> — UTC ISO-8601</li>
+            <li><strong>Diff</strong> — before/after values for flag mutations</li>
+          </ul>
+
+          <h3>Export</h3>
+          <p>Audit entries are accessible via <code>GET /api/v1/audit</code>. Export the full log as JSON or CSV from <strong>Settings → Audit Log → Export</strong> for SOC 2 or ISO 27001 evidence.</p>
+        </section>
+
+        <!-- ===================== WEBHOOKS ===================== -->
+        <section class="docs-section" id="webhooks">
+          <h2>Webhooks <span class="badge-yellow">Coming soon</span></h2>
+          <p>Webhooks will let you subscribe to flag change events and receive HTTP POST notifications to your own endpoints — useful for cache invalidation, CI triggers, and Slack alerts.</p>
+
+          <div class="callout callout-info">
+            <span class="callout-icon">ℹ</span>
+            <div>Webhooks are tracked as <strong>CLO-21</strong> in our Linear board. Until available, you can poll <code>GET /api/v1/audit</code> for recent changes or use the SDK's polling mechanism.</div>
+          </div>
+
+          <h3>Planned event types</h3>
+          <ul>
+            <li><code>flag.updated</code> — any flag mutation</li>
+            <li><code>flag.enabled</code> / <code>flag.disabled</code></li>
+            <li><code>killswitch.activated</code></li>
+            <li><code>environment.updated</code></li>
+          </ul>
+        </section>
+
+        <!-- ======== PAGE NAV ======== -->
+        <nav class="page-nav">
+          <a href="/" class="page-nav-btn">
+            <span class="page-nav-dir">← Back to</span>
+            <span class="page-nav-title">flagctl.io</span>
+          </a>
+          <a href="https://github.com/cloudwalkersinc/flagctl-app" target="_blank" rel="noopener" class="page-nav-btn next">
+            <span class="page-nav-dir">View source on</span>
+            <span class="page-nav-title">GitHub →</span>
+          </a>
+        </nav>
+
+      </div>
+    </main>
+
+    <!-- ===== TABLE OF CONTENTS ===== -->
+    <aside class="docs-toc">
+      <div class="toc-label">On this page</div>
+      <div class="toc-links" id="toc-links">
+        <a href="#quickstart" class="toc-link active">Quickstart</a>
+        <a href="#concepts" class="toc-link">Core concepts</a>
+        <a href="#workspaces" class="toc-link">Workspaces</a>
+        <a href="#environments" class="toc-link">Environments</a>
+        <a href="#flag-types" class="toc-link">Flag types</a>
+        <a href="#lifecycle" class="toc-link">Lifecycle stages</a>
+        <a href="#evaluation" class="toc-link">Evaluation</a>
+        <a href="#targeting" class="toc-link">Targeting &amp; rollout</a>
+        <a href="#kill-switches" class="toc-link">Kill switches</a>
+        <a href="#java-sdk" class="toc-link">Java SDK</a>
+        <a href="#spring-boot" class="toc-link">Spring Boot Starter</a>
+        <a href="#cli" class="toc-link">CLI reference</a>
+        <a href="#rest-api" class="toc-link">REST API</a>
+        <a href="#manifest-api" class="toc-link">Manifest API</a>
+        <a href="#api-keys" class="toc-link">API keys</a>
+        <a href="#segments" class="toc-link">Segments</a>
+        <a href="#audit-log" class="toc-link">Audit log</a>
+        <a href="#webhooks" class="toc-link">Webhooks</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    // Active section tracking
+    const sections = document.querySelectorAll('.docs-section[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function setActive(id) {
+      sidebarLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+      tocLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-60px 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Copy button
+    function copyCode(btn) {
+      const pre = btn.closest('.code-block-wrap').querySelector('pre');
+      navigator.clipboard.writeText(pre.textContent).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
